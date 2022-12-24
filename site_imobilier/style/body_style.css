@@ -4,6 +4,7 @@
 * {
   margin: 0%;
   padding: 0%;
+  box-sizing: border-box;
 }
 
 .header {
@@ -68,6 +69,70 @@
 
 /*END FIRST SCREEN */
 /*BEGINNING SECOND SCREEN */
+.main-content {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.container-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "details" "icons" "contact" "interest";
+}
+.container-grid__details {
+  grid-area: details;
+}
+.container-grid__icons {
+  grid-area: icons;
+}
+.container-grid__contact {
+  grid-area: contact;
+}
+.container-grid__interest {
+  grid-area: interest;
+}
+.container-grid__mini-preview {
+  display: none;
+  grid-area: mini-preview;
+}
+@media only screen and (min-width: 600px) {
+  .container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 0.3fr 0.5fr;
+    gap: 5px 20px;
+    grid-template-areas: "details mini-preview" "icons mini-preview" "interest contact";
+  }
+  .container-grid__interest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-grid__mini-preview {
+    display: flex;
+    grid-area: mini-preview;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+  }
+  .container-grid__mini-preview__giant {
+    width: 100%;
+    height: 100%;
+  }
+  .container-grid__mini-preview__small {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+
 .container-text {
   padding-top: 10%;
   display: flex;
@@ -263,6 +328,11 @@
 .interest__img__3 {
   border: #042e5C solid;
   width: 25%;
+}
+@media screen and (min-width: 600px) {
+  .interest__title {
+    padding: 0%;
+  }
 }
 
 .footer {

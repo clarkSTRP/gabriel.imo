@@ -52,6 +52,7 @@ $black : black ;
 * {
     margin: 0%;
     padding: 0%;
+    box-sizing: border-box;
 }
 html {
 
@@ -123,6 +124,73 @@ body {
 }
 /*END FIRST SCREEN */
 /*BEGINNING SECOND SCREEN */
+.main-content {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.container-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-rows: 2fr 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "details"
+      "icons"
+      "contact"
+      "interest"; 
+    &__details { 
+        grid-area: details;
+    }
+    &__icons { 
+        grid-area: icons;
+    }
+    &__contact { 
+        grid-area: contact;
+    }
+    &__interest {
+        grid-area: interest;
+    }
+    &__mini-preview {
+        display: none;
+        grid-area: mini-preview;
+    }
+    
+    @media only screen and (min-width: 600px) { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 0.5fr 0.3fr 0.5fr; 
+        gap: 5px 20px;
+        grid-template-areas:  
+        "details mini-preview"
+        "icons mini-preview"
+        "interest contact"; 
+        &__interest {
+            @include center;
+        }
+        &__mini-preview {
+            display: flex;
+            grid-area: mini-preview;
+            flex-direction: row;
+            @include center;
+            padding: 5%;
+
+            &__giant {
+                width: 100%;
+                height: 100%;
+                
+            }
+            &__small {
+                display: flex;
+                flex-direction: column;
+                width: 100px;
+                height: fit-content
+            }
+
+        }
+    }
+        
+    }
+
 .container {
     &-text {
         padding-top: 10%;
@@ -262,6 +330,12 @@ body {
             width: 25%;
         }
     }
+@media screen and (min-width: 600px) {
+    &__title {
+        padding :0%;
+    }
+    
+}   
 }
 .footer {
     margin-top: 10%;
